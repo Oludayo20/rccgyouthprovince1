@@ -87,7 +87,7 @@ const Give: NextPageWithLayout = () => {
     >
       <div
         onClick={goBack}
-        className="text-white font-bold flex items-center space-x-4 cursor-pointer"
+        className="text-white font-bold flex items-center space-x-4 cursor-pointer mt-8 md:mt-0"
       >
         <BiArrowBack size={24} />
         <h1 className="text-white">Go Back</h1>

@@ -82,7 +82,7 @@ export default function Navbar({ current, className, ...rest }: NavbarProps) {
       )}
       {...rest}
     >
-      <div className="mx-auto px-4 sm:px-6 lg:px-8 py-2">
+      <div className="mx-auto px-4 sm:px-6 lg:px-2 py-0">
         <div className="flex md:justify-evenly justify-between h-16 items-center">
           {/* Left side navigation links */}
           <div className="hidden md:flex items-center">
@@ -105,7 +105,7 @@ export default function Navbar({ current, className, ...rest }: NavbarProps) {
                 alt="YP! Logo"
                 width={60}
                 height={60}
-                className="block h-[5rem] w-[5rem]"
+                className="block h-auto w-[5rem]"
               />
             </Link>
           </div>

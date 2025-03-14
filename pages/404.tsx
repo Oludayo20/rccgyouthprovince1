@@ -7,7 +7,7 @@ export default function PageNotFound() {
   return (
     <>
       <Head>
-        <title>SetMaker - Page Not Found</title>
+        <title>Youth Province 1 - Page Not Found</title>
       </Head>
       <div
         className={classNames(
