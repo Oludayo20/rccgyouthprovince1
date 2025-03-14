@@ -67,7 +67,7 @@ export default function NewsLetter({
         <div className="rounded-xl border border-yellow-500 p-8 md:p-16 text-center text-white bg-opacity-70">
           <h2 className="text-4xl font-bold mb-3">Join our Newsletter</h2>
           <p className="text-base mb-8">
-            Don't miss out on updates, events, news, and opportunities
+            Don&apos;t miss out on updates, events, news, and opportunities
           </p>
 
           <form

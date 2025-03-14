@@ -2,7 +2,7 @@ import classNames from "classnames";
 import { HTMLProps, MouseEventHandler } from "react";
 
 interface HeroProps extends HTMLProps<HTMLDivElement> {
-  onScroll?: () => any;
+  onScroll?: () => void;
 }
 
 export default function HeroSection({

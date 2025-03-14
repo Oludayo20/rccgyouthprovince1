@@ -3,7 +3,7 @@ import { HTMLProps, MouseEventHandler } from "react";
 import { events } from "../../data/event";
 
 interface EventsProps extends HTMLProps<HTMLDivElement> {
-  onScroll?: () => any;
+  onScroll?: () => void;
 }
 
 export default function EventsSection({

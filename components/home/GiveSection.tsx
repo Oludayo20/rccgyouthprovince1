@@ -1,8 +1,9 @@
+import classNames from "classnames";
 import { useRouter } from "next/router";
 import { HTMLProps, MouseEventHandler } from "react";
 
 interface GiveSectionProps extends HTMLProps<HTMLDivElement> {
-  onScroll?: () => any;
+  onScroll?: () => void;
 }
 
 export default function GiveSection({
@@ -24,7 +25,11 @@ export default function GiveSection({
     <div
       id="give"
       onMouseEnter={onEntered}
-      className="mx-auto h-full p-4 flex flex-col items-center justify-center bg-white"
+      className={classNames(
+        "mx-auto h-full p-4 flex flex-col items-center justify-center bg-white",
+        className
+      )}
+      {...rest}
     >
       <div className="container flex flex-col lg:flex-row w-full items-center justify-between relative z-10 md:p-12 space-y-12 md:space-y-0">
         {/* Left Content */}

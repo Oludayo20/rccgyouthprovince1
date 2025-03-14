@@ -1,8 +1,9 @@
+import classNames from "classnames";
 import Image from "next/image";
 import { HTMLProps, MouseEventHandler } from "react";
 
 interface DetailsSectionProps extends HTMLProps<HTMLDivElement> {
-  onScroll?: () => any;
+  onScroll?: () => void;
 }
 
 export default function DetailsSection({
@@ -18,7 +19,11 @@ export default function DetailsSection({
     <div
       id="about-us"
       onMouseEnter={onEntered}
-      className="mx-auto h-full p-4 flex flex-col items-center justify-center bg-white space-y-12 md:space-y-0"
+      className={classNames(
+        "mx-auto h-full p-4 flex flex-col items-center justify-center bg-white space-y-12 md:space-y-0",
+        className
+      )}
+      {...rest}
     >
       <div className="container flex flex-col lg:flex-row w-full items-center md:justify-between relative z-10 md:p-8 p-2">
         <div className="md:w-[50vw] w-full">
@@ -97,8 +102,8 @@ export default function DetailsSection({
                 <h3 className="text-2xl text-gray-700">Our Vision</h3>
                 <p className="text-gray-600 mt-2">
                   We are committed to raising a generation of youth transformed
-                  by God's power—spiritually, mentally, and socially—to impact
-                  their world.
+                  by God&apos;s power—spiritually, mentally, and socially—to
+                  impact their world.
                 </p>
               </div>
             </div>
