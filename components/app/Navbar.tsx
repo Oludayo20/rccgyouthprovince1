@@ -1,7 +1,6 @@
 import classNames from "classnames";
 import Image from "next/image";
 import Link from "next/link";
-import { useRouter } from "next/router";
 import { HTMLProps, useEffect, useRef, useState } from "react";
 import { NavLink } from "./NavLink";
 
@@ -36,11 +35,6 @@ export default function Navbar({ current, className, ...rest }: NavbarProps) {
   ];
 
   const [active, setActive] = useState(current);
-  const router = useRouter();
-  const goHome = () => {
-    setActive("#");
-    router.push("/");
-  };
 
   useEffect(() => {
     setActive(current);
@@ -88,6 +82,7 @@ export default function Navbar({ current, className, ...rest }: NavbarProps) {
         },
         className
       )}
+      {...rest}
     >
       <div className="mx-auto px-4 sm:px-6 lg:px-8 py-2">
         <div className="flex justify-evenly h-16 items-center">

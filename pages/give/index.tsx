@@ -1,13 +1,6 @@
 "use client";
 
-import {
-  motion,
-  useAnimation,
-  useInView,
-  useScroll,
-  useSpring,
-  useTransform,
-} from "framer-motion";
+import { motion, useAnimation, useInView } from "framer-motion";
 import Image from "next/image";
 import { useRouter } from "next/router";
 import { useEffect, useRef } from "react";
@@ -26,18 +19,6 @@ const Give: NextPageWithLayout = () => {
   const goBack = () => {
     router.back();
   };
-
-  // Floating animation for bank image
-  const { scrollY } = useScroll();
-  const y = useSpring(useTransform(scrollY, [0, 1000], [0, -50]), {
-    stiffness: 50,
-    damping: 10,
-  });
-
-  const rotation = useSpring(useTransform(scrollY, [0, 1000], [0, 10]), {
-    stiffness: 50,
-    damping: 10,
-  });
 
   useEffect(() => {
     if (isInView) {
@@ -127,7 +108,8 @@ const Give: NextPageWithLayout = () => {
           variants={headerVariants}
           className="md:mt-8 mt-4 text-[16px] md:text-[18px]"
         >
-          Give according to what you are led to give in obedience to God's word.
+          Give according to what you are led to give in obedience to God&apos;s
+          word.
         </motion.p>
       </motion.div>
 
