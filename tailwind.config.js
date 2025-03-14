@@ -11,6 +11,7 @@ module.exports = {
         secondary: "#3D60F8FF",
       },
       fontFamily: {
+        sans: ["Manrope", "sans-serif"],
         heading: ["Manrope", "sans-serif"],
       },
     },

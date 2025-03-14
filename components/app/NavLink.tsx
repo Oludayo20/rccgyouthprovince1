@@ -1,4 +1,5 @@
 import classNames from "classnames";
+import Link from "next/link";
 
 type NavLinkProps = {
   href: string;
@@ -33,7 +34,7 @@ export const NavLink: React.FC<NavLinkProps> = ({
       )}
       onClick={clickHandler}
     >
-      <a
+      <Link
         href={href}
         className={classNames(
           {
@@ -46,7 +47,7 @@ export const NavLink: React.FC<NavLinkProps> = ({
         )}
       >
         {label}
-      </a>
+      </Link>
     </div>
   );
 };

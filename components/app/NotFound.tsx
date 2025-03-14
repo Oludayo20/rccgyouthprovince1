@@ -43,14 +43,14 @@ export default function NotFound({
       <div>
         {explanation} You can go back to the{" "}
         <a
-          className="font-semibold text-emerald-400 cursor-pointer"
+          className="font-semibold text-blue-500 cursor-pointer"
           onClick={onPrev}
         >
           previous page
         </a>{" "}
         or go{" "}
         <a
-          className="font-semibold text-emerald-400 cursor-pointer"
+          className="font-semibold text-blue-500 cursor-pointer"
           onClick={onHome}
         >
           home
@@ -58,7 +58,12 @@ export default function NotFound({
         .
       </div>
       {/* Image */}
-      <Image src="/img/404.png" alt="Not Found" width={576} height={576} />
+      <Image
+        src="/images/logo-main.png"
+        alt="Not Found"
+        width={576}
+        height={576}
+      />
     </div>
   );
 }

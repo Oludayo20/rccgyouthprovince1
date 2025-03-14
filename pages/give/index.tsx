@@ -5,7 +5,9 @@ import Image from "next/image";
 import { useRouter } from "next/router";
 import { useEffect, useRef } from "react";
 import { BiArrowBack } from "react-icons/bi";
+import Navbar from "../../components/app/Navbar";
 import { accountDetails } from "../../data/accoutDetails";
+import ViewerLayout from "../../layouts/viewer";
 import { NextPageWithLayout } from "../../types/app";
 
 const Give: NextPageWithLayout = () => {
@@ -77,7 +79,6 @@ const Give: NextPageWithLayout = () => {
         backgroundSize: "cover",
         // backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
-
         // height: "100vh",
       }}
       ref={containerRef}
@@ -183,8 +184,8 @@ const Give: NextPageWithLayout = () => {
   );
 };
 
-// Give.getLayout = (page) => (
-//   <ViewerLayout navbar={<Navbar current="#give" />}>{page}</ViewerLayout>
-// );
+Give.getLayout = (page) => (
+  <ViewerLayout navbar={<Navbar />}>{page}</ViewerLayout>
+);
 
 export default Give;

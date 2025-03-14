@@ -5,7 +5,7 @@ import { HTMLProps, useEffect, useRef, useState } from "react";
 import { NavLink } from "./NavLink";
 
 interface NavbarProps extends HTMLProps<HTMLDivElement> {
-  current: string;
+  current?: string;
 }
 
 export default function Navbar({ current, className, ...rest }: NavbarProps) {
@@ -14,23 +14,22 @@ export default function Navbar({ current, className, ...rest }: NavbarProps) {
   const buttonRef = useRef<HTMLButtonElement | null>(null);
 
   const leftLinks = [
-    { href: "#hero", label: "Home" },
-    { href: "#about-us", label: "About Us" },
-    { href: "#communities", label: "Communities" },
-    { href: "#give", label: "Give" },
+    { href: "/", label: "Home" },
+    { href: "/about-us", label: "About Us" },
+    { href: "/communities", label: "Communities" },
+    { href: "/give", label: "Give" },
   ];
 
   const rightLinks = [
-    { href: "#gallery", label: "Gallery" },
-    { href: "#blogs", label: "Blogs" },
+    { href: "/csr", label: "CSR" },
+    { href: "/our-churches", label: "Our Churches" },
     {
-      href: "#contact-us",
-      label: "Contact Us",
+      href: "/blog",
+      label: "Blog",
     },
     {
-      href: "/login",
-      label: "Login",
-      className: "text-[#4C6EFE]",
+      href: "/contact-us",
+      label: "Contact Us",
     },
   ];
 
@@ -43,7 +42,6 @@ export default function Navbar({ current, className, ...rest }: NavbarProps) {
   const isActive = (href: string) => active === href;
   const onClick = (href: string) => {
     setActive(href);
-    document.getElementById(href)?.scrollIntoView({ behavior: "smooth" });
   };
 
   useEffect(() => {
@@ -85,7 +83,7 @@ export default function Navbar({ current, className, ...rest }: NavbarProps) {
       {...rest}
     >
       <div className="mx-auto px-4 sm:px-6 lg:px-8 py-2">
-        <div className="flex justify-evenly h-16 items-center">
+        <div className="flex md:justify-evenly justify-between h-16 items-center">
           {/* Left side navigation links */}
           <div className="hidden md:flex items-center">
             {leftLinks.map((link) => (
@@ -103,7 +101,7 @@ export default function Navbar({ current, className, ...rest }: NavbarProps) {
           <div className="flex-shrink-0 flex items-center justify-center">
             <Link href="/" className="flex items-center h-[10rem] w-[10rem]">
               <Image
-                src="/images/YP1-Logo-1.png"
+                src="/images/logo-main.png"
                 alt="YP! Logo"
                 width={60}
                 height={60}
@@ -115,12 +113,7 @@ export default function Navbar({ current, className, ...rest }: NavbarProps) {
           {/* Right side navigation links */}
           <div className="hidden md:flex items-center">
             {rightLinks.map((link) => (
-              <NavLink
-                key={link.href}
-                href={link.href}
-                label={link.label}
-                className={link.className}
-              />
+              <NavLink key={link.href} href={link.href} label={link.label} />
             ))}
           </div>
 

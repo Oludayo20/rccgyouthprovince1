@@ -16,7 +16,7 @@ export default function AppLogo({
   if (!onClick) onClick = () => {};
   return (
     <Image
-      src="/img/logo.png"
+      src="/images/logo-main.png"
       alt="YP1 Logo"
       width={width}
       height={height}
