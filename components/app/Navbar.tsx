@@ -48,7 +48,7 @@ export default function Navbar({ current, className, ...rest }: NavbarProps) {
 
   useEffect(() => {
     const scrollHandler = () => {
-      window.pageYOffset > 10 ? setTop(false) : setTop(true);
+      window.pageYOffset > 10 ? setTop(false) : setTop(true); // eslint-disable-line @typescript-eslint/no-unused-expressions
     };
     window.addEventListener("scroll", scrollHandler);
     return () => window.removeEventListener("scroll", scrollHandler);
