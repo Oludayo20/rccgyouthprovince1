@@ -10,10 +10,10 @@ export default function ViewerLayout({ navbar, children }: ViewerLayoutProps) {
   return (
     <>
       <Head>
-        <title>SetMaker - management interface</title>
+        <title>YP1 - RCCG Youth Province 1</title>
         <meta
           name="description"
-          content="Your imagination is limitless. Give it a new toolkit."
+          content="YP1 is a youth ministry of RCCG Youth Province 1, a church based in Lagos, Nigeria."
         />
         <link rel="icon" href="/images/logo-bg.png" />
         <meta property="og:image" content={`/images/logo-bg.png`} />
