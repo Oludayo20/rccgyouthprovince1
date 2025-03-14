@@ -8,7 +8,7 @@ import {
 } from "react";
 
 interface NewsLetterProps extends HTMLProps<HTMLDivElement> {
-  onScroll?: () => any;
+  onScroll?: () => void;
 }
 
 export default function NewsLetter({
