@@ -118,7 +118,7 @@ export default function Navbar({ current, className, ...rest }: NavbarProps) {
           </div>
 
           {/* Mobile menu button */}
-          <div className="flex md:hidden items-center">
+          <div className="flex md:hidden items-center mt-5">
             <button
               ref={buttonRef}
               onClick={() => setIsOpen(!isOpen)}
