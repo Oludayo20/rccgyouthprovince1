@@ -6,16 +6,24 @@ import { NavLink } from "./NavLink";
 
 interface NavbarProps extends HTMLProps<HTMLDivElement> {
   current?: string;
+  linkColor?: boolean;
 }
 
-export default function Navbar({ current, className, ...rest }: NavbarProps) {
+export default function Navbar({
+  current,
+  linkColor,
+  className,
+  ...rest
+}: NavbarProps) {
   const [top, setTop] = useState(true);
   const [isOpen, setIsOpen] = useState(false);
   const buttonRef = useRef<HTMLButtonElement | null>(null);
 
+  console.log(linkColor);
+
   const leftLinks = [
     { href: "/", label: "Home" },
-    { href: "/about-us", label: "About Us" },
+    { href: "/about", label: "About Us" },
     { href: "/communities", label: "Communities" },
     { href: "/give", label: "Give" },
   ];
@@ -28,21 +36,10 @@ export default function Navbar({ current, className, ...rest }: NavbarProps) {
       label: "Blog",
     },
     {
-      href: "/contact-us",
+      href: "/contact",
       label: "Contact Us",
     },
   ];
-
-  const [active, setActive] = useState(current);
-
-  useEffect(() => {
-    setActive(current);
-  }, [current]);
-
-  const isActive = (href: string) => active === href;
-  const onClick = (href: string) => {
-    setActive(href);
-  };
 
   useEffect(() => {
     const scrollHandler = () => {
@@ -77,6 +74,8 @@ export default function Navbar({ current, className, ...rest }: NavbarProps) {
         {
           "bg-gray-950 backdrop-invert opacity-80 shadow-lg top-0": !top,
           "bg-transparent top-5": top,
+          "text-black": linkColor && top,
+          "text-white": !linkColor && !top,
         },
         className
       )}
@@ -91,8 +90,7 @@ export default function Navbar({ current, className, ...rest }: NavbarProps) {
                 key={link.href}
                 href={link.href}
                 label={link.label}
-                isActive={isActive(link.href)}
-                onClick={() => onClick(link.href)}
+                linkColor
               />
             ))}
           </div>
@@ -113,7 +111,12 @@ export default function Navbar({ current, className, ...rest }: NavbarProps) {
           {/* Right side navigation links */}
           <div className="hidden md:flex items-center">
             {rightLinks.map((link) => (
-              <NavLink key={link.href} href={link.href} label={link.label} />
+              <NavLink
+                key={link.href}
+                href={link.href}
+                label={link.label}
+                linkColor
+              />
             ))}
           </div>
 

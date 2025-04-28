@@ -1,24 +1,29 @@
 import classNames from "classnames";
 import Link from "next/link";
+import { useRouter } from "next/router";
 
 type NavLinkProps = {
   href: string;
   label: string;
   className?: string;
-  isActive?: boolean;
   onClick?: () => void;
+  linkColor?: boolean;
 };
 
 export const NavLink: React.FC<NavLinkProps> = ({
   href,
   label,
   className,
-  isActive = false,
   onClick,
+  linkColor = false,
 }) => {
+  const router = useRouter();
+  const isCurrentPath = router.asPath === href;
+
   const clickHandler = () => {
     if (onClick) onClick();
   };
+
   return (
     <div
       className={classNames(
@@ -37,13 +42,20 @@ export const NavLink: React.FC<NavLinkProps> = ({
       <Link
         href={href}
         className={classNames(
-          {
-            "border rounded-full border-white": isActive,
-            "drop-shadow-2xl": isActive,
-            "shadow-white": isActive,
-          },
           "px-6 py-2 transition-colors duration-200",
-          "hover:border hover:rounded-full hover:border-white"
+          {
+            "border rounded-full": isCurrentPath,
+            "border-black": isCurrentPath && linkColor,
+            "border-white": isCurrentPath && !linkColor,
+            "drop-shadow-2xl": isCurrentPath,
+            "shadow-white": isCurrentPath && !linkColor,
+            "shadow-black": isCurrentPath && linkColor,
+          },
+          {
+            "hover:border hover:rounded-full": true,
+            "hover:border-black": linkColor,
+            "hover:border-white": !linkColor,
+          }
         )}
       >
         {label}
