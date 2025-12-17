@@ -13,16 +13,16 @@ const ContactUs: NextPageWithLayout = () => {
           {/* Left Content */}
           <div className="w-full lg:w-[35%]">
             <h1 className="md:text-[53px] text-[35px] text-[#222222] font-normal">
-              Let's Connect and Collaborate
+              {"Let's Connect and Collaborate"}
             </h1>
           </div>
 
           {/* Right Image */}
           <div className="w-full lg:w-[50%] flex flex-col justify-center space-y-4">
             <h1 className="text-gray-600 md:w-[80%]">
-              Have something on your mind? Fill out the form below, and let's
-              start a conversation. You can also send an email, call us or
-              locate us in the address below.
+              {
+                "Have something on your mind? Fill out the form below, and let's. start a conversation. You can also send an email, call us or  locate us in the address below."
+              }
             </h1>
           </div>
         </div>

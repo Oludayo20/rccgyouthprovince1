@@ -8,6 +8,7 @@ type NavLinkProps = {
   className?: string;
   onClick?: () => void;
   linkColor?: boolean;
+  current: boolean;
 };
 
 export const NavLink: React.FC<NavLinkProps> = ({
@@ -16,9 +17,10 @@ export const NavLink: React.FC<NavLinkProps> = ({
   className,
   onClick,
   linkColor = false,
+  current = false,
 }) => {
   const router = useRouter();
-  const isCurrentPath = router.asPath === href;
+  const isCurrentPath = current || router.asPath === href;
 
   const clickHandler = () => {
     if (onClick) onClick();

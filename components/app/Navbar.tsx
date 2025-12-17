@@ -91,6 +91,7 @@ export default function Navbar({
                 href={link.href}
                 label={link.label}
                 linkColor
+                current={current === link.href}
               />
             ))}
           </div>
@@ -116,6 +117,7 @@ export default function Navbar({
                 href={link.href}
                 label={link.label}
                 linkColor
+                current={current === link.href}
               />
             ))}
           </div>
@@ -179,6 +181,7 @@ export default function Navbar({
               href={link.href}
               label={link.label}
               className={`items-start block px-3 py-2 rounded-md text-base font-medium hover:text-indigo-600 hover:bg-gray-100`}
+              current={current === link.href}
             />
           ))}
         </div>
