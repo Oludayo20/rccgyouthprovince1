@@ -1,36 +1,47 @@
+"use client";
+
 import Image from "next/image";
+import { motion } from "framer-motion";
 import { pastors } from "../../data/pastors";
+import SectionHeading from "../ui/SectionHeading";
+import { staggerContainer, staggerItem } from "../ui/motion";
 
-const Footer: React.FC = () => {
+const Pastors: React.FC = () => {
   return (
-    <div className="container w-full items-center justify-between relative z-10 md:p-12 p-2">
-      <div className="flex items-center justify-between text-[#222222] w-full text-[3.5rem] mb-14">
-        <h1>Meet Our Pastors</h1>
-        <div className="border-b border-gray-400 w-[60%]"></div>
-      </div>
+    <div>
+      <SectionHeading label="Leadership" title="Meet Our Pastor" align="center" />
 
-      <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+      <motion.div
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-10% 0px" }}
+        variants={staggerContainer()}
+        className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3"
+      >
         {pastors.map((pst) => (
-          <div
-            className="relative w-full rounded-[2rem] overflow-hidden group"
+          <motion.div
+            variants={staggerItem}
+            whileHover={{ y: -6 }}
+            className="group relative w-full max-w-sm mx-auto overflow-hidden rounded-[2rem] border border-black/5 shadow-lg"
             key={pst.id}
           >
             <Image
               src={pst.pic}
               alt={pst.name}
-              width={100}
-              height={100}
-              className="h-auto w-full object-cover transition-all duration-300 group-hover:brightness-50"
+              width={480}
+              height={560}
+              className="h-[420px] w-full object-cover transition-transform duration-500 group-hover:scale-105"
             />
-            <div className="absolute inset-0 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-white text-center p-4">
-              <h3 className="text-lg font-semibold">{pst.name}</h3>
-              <p className="text-sm">{pst.role}</p>
+            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent" />
+            <div className="absolute inset-x-0 bottom-0 p-6 text-white">
+              <h3 className="text-lg font-bold">{pst.name}</h3>
+              <p className="mt-1 text-sm text-white/80">{pst.role}</p>
             </div>
-          </div>
+          </motion.div>
         ))}
-      </div>
+      </motion.div>
     </div>
   );
 };
 
-export default Footer;
+export default Pastors;

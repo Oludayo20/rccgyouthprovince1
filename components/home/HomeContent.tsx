@@ -1,13 +1,15 @@
-import { useState } from "react";
-import Footer from "../components/app/Footer";
-import Navbar from "../components/app/Navbar";
-import DetailsSection from "../components/home/DetailsSection";
-import EventsSection from "../components/home/EventsSection";
-import GiveSection from "../components/home/GiveSection";
-import HeroSection from "../components/home/HeroSection";
-import NewsLetter from "../components/home/Newsletter";
+"use client";
 
-export default function Home() {
+import { useState } from "react";
+import Footer from "../app/Footer";
+import Navbar from "../app/Navbar";
+import DetailsSection from "./DetailsSection";
+import EventsSection from "./EventsSection";
+import GiveSection from "./GiveSection";
+import HeroSection from "./HeroSection";
+import NewsLetter from "./Newsletter";
+
+export default function HomeContent() {
   const [current, setCurrent] = useState("#");
   return (
     <div>

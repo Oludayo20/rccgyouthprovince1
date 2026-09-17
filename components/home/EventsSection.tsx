@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image";
 import { HTMLProps, MouseEventHandler } from "react";
 import { events } from "../../data/event";
@@ -63,7 +65,7 @@ export default function EventsSection({
                       y="6"
                       stroke="currentColor"
                       rx="2"
-                      stroke-width="1"
+                      strokeWidth="1"
                     />
                     <path
                       fill="currentColor"
@@ -71,9 +73,9 @@ export default function EventsSection({
                     />
                     <path
                       stroke="currentColor"
-                      stroke-linecap="round"
+                      strokeLinecap="round"
                       d="M7 3v3m10-3v3"
-                      stroke-width="1"
+                      strokeWidth="1"
                     />
                   </g>
                 </svg>

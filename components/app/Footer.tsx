@@ -12,6 +12,7 @@ import {
 } from "react-icons/fa";
 
 const Footer: React.FC = () => {
+  const currentYear = new Date().getFullYear();
   return (
     <footer className="bg-black text-white">
       <div className="container mx-auto px-4 py-12">
@@ -54,7 +55,7 @@ const Footer: React.FC = () => {
             <h3 className="text-xl font-semibold mb-6">Go to</h3>
             <ul className="space-y-4">
               <li>
-                <Link href="/home" className="hover:text-gray-300">
+                <Link href="/" className="hover:text-gray-300">
                   Home
                 </Link>
               </li>
@@ -69,17 +70,12 @@ const Footer: React.FC = () => {
                 </Link>
               </li>
               <li>
-                <Link href="/gallery" className="hover:text-gray-300">
-                  Gallery
-                </Link>
-              </li>
-              <li>
                 <Link href="/blog" className="hover:text-gray-300">
                   Blog
                 </Link>
               </li>
               <li>
-                <Link href="/events" className="hover:text-gray-300">
+                <Link href="/#events" className="hover:text-gray-300">
                   Events
                 </Link>
               </li>
@@ -91,7 +87,12 @@ const Footer: React.FC = () => {
             <h3 className="text-xl font-semibold mb-6">Communities</h3>
             <ul className="space-y-4">
               <li>
-                <Link href="/churches" className="hover:text-gray-300">
+                <Link href="/communities" className="hover:text-gray-300">
+                  Fellowships and Groups
+                </Link>
+              </li>
+              <li>
+                <Link href="/our-churches" className="hover:text-gray-300">
                   YP1 Churches near you
                 </Link>
               </li>
@@ -103,28 +104,13 @@ const Footer: React.FC = () => {
             <h3 className="text-xl font-semibold mb-6">Others</h3>
             <ul className="space-y-4">
               <li>
-                <Link href="/terms" className="hover:text-gray-300">
-                  Terms and Conditions
+                <Link href="/csr" className="hover:text-gray-300">
+                  CSR
                 </Link>
               </li>
               <li>
-                <Link href="/radio" className="hover:text-gray-300">
-                  PSF Radio
-                </Link>
-              </li>
-              <li>
-                <Link href="/counselling" className="hover:text-gray-300">
-                  Counselling
-                </Link>
-              </li>
-              <li>
-                <Link href="/app" className="hover:text-gray-300">
-                  PSF Mobile App
-                </Link>
-              </li>
-              <li>
-                <Link href="/stream" className="hover:text-gray-300">
-                  Live Stream
+                <Link href="/contact" className="hover:text-gray-300">
+                  Contact Us
                 </Link>
               </li>
             </ul>
@@ -145,8 +131,8 @@ const Footer: React.FC = () => {
               <li className="flex items-start">
                 <FaMapMarkerAlt className="mr-3 h-8 w-8" />
                 <span>
-                  YP1 HQ, 30 Rafiu Babatunde Tinubu way, Apple Junction,
-                  Amuwo-Odofin, Lagos, Nigeria
+                  RCCG Jesus Palace (YP1 HQ), 30 Rafiu Babatunde Tinubu Way,
+                  Apple Junction, Amuwo-Odofin, Lagos, Nigeria
                 </span>
               </li>
             </ul>
@@ -156,7 +142,7 @@ const Footer: React.FC = () => {
 
       {/* Copyright Bar */}
       <div className="bg-[#4C6EFE] py-2 text-center text-white text-sm">
-        <p>©Copyright 2024, All Rights Reserved | Designed by YP1 Media</p>
+        <p>©Copyright {currentYear}, All Rights Reserved | Designed by YP1 Media</p>
       </div>
     </footer>
   );

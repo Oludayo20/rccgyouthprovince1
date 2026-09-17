@@ -1,3 +1,5 @@
+"use client";
+
 import classNames from "classnames";
 import Image from "next/image";
 import Link from "next/link";
@@ -19,8 +21,6 @@ export default function Navbar({
   const [isOpen, setIsOpen] = useState(false);
   const buttonRef = useRef<HTMLButtonElement | null>(null);
 
-  console.log(linkColor);
-
   const leftLinks = [
     { href: "/", label: "Home" },
     { href: "/about", label: "About Us" },
@@ -40,6 +40,11 @@ export default function Navbar({
       label: "Contact Us",
     },
   ];
+
+  // Nav links only need dark text while floating transparently over a light
+  // page (top === true). Once scrolled, the bar itself turns dark, so links
+  // should always render light regardless of the page's own linkColor.
+  const useDarkText = Boolean(linkColor) && top;
 
   useEffect(() => {
     const scrollHandler = () => {
@@ -90,7 +95,7 @@ export default function Navbar({
                 key={link.href}
                 href={link.href}
                 label={link.label}
-                linkColor
+                linkColor={useDarkText}
                 current={current === link.href}
               />
             ))}
@@ -116,7 +121,7 @@ export default function Navbar({
                 key={link.href}
                 href={link.href}
                 label={link.label}
-                linkColor
+                linkColor={useDarkText}
                 current={current === link.href}
               />
             ))}
@@ -127,7 +132,12 @@ export default function Navbar({
             <button
               ref={buttonRef}
               onClick={() => setIsOpen(!isOpen)}
-              className="inline-flex items-center justify-center p-2 rounded-md text-white hover:text-indigo-600 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500"
+              className={classNames(
+                "inline-flex items-center justify-center p-2 rounded-full transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-[#4C6EFE]",
+                useDarkText
+                  ? "text-[#0B0B12] hover:bg-black/5"
+                  : "text-white hover:bg-white/10"
+              )}
               aria-expanded="false"
             >
               <span className="sr-only">Open main menu</span>
@@ -180,7 +190,8 @@ export default function Navbar({
               key={link.href}
               href={link.href}
               label={link.label}
-              className={`items-start block px-3 py-2 rounded-md text-base font-medium hover:text-indigo-600 hover:bg-gray-100`}
+              linkColor
+              fullWidth
               current={current === link.href}
             />
           ))}

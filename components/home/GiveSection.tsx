@@ -1,5 +1,7 @@
+"use client";
+
 import classNames from "classnames";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 import { HTMLProps } from "react";
 
 export default function GiveSection({
